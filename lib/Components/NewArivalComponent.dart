@@ -18,6 +18,13 @@ class NewArivalComponent extends StatefulWidget {
 }
 
 class _NewArivalComponentState extends State<NewArivalComponent> {
+  bool ItemLiked = false;
+  void LikeItem() {
+    setState(() {
+      ItemLiked = !ItemLiked;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -39,17 +46,26 @@ class _NewArivalComponentState extends State<NewArivalComponent> {
                     widget
                         .ImageUrl, // Replace with Image.asset if using local assets
                     width: 157, // Adjust width to match Container's width
-                    height: 218, // Adjust height to match Container's height
+                    height: 245,
+                    // Adjust height to match Container's height
                     fit: BoxFit.cover, // Use BoxFit.cover to fill the container
                   ),
                 ),
                 Positioned(
                     top: 7,
                     left: 126,
-                    child: Image.asset(
-                      "assets/DesignImages/RoundedLikeIcon.png",
-                      height: 28,
-                      width: 28,
+                    child: InkWell(
+                      onTap: LikeItem,
+                      child: Container(
+                        height: 28,
+                        width: 28,
+                        decoration: BoxDecoration(
+                            color: Colors.white, shape: BoxShape.circle),
+                        padding: EdgeInsets.all(7),
+                        child: Image.asset(
+                          "assets/DesignImages/${!ItemLiked ? "NonSelectedIcons/Like.png" : "SelectedIcons/RedLike.png"}",
+                        ),
+                      ),
                     )),
                 widget.haveAddToCart
                     ? Positioned(
@@ -64,21 +80,25 @@ class _NewArivalComponentState extends State<NewArivalComponent> {
                               border: Border.all(width: 0.4)),
                           child: Row(
                             children: [
-                              Text("ADD",
-                                  style: GoogleFonts.beVietnamPro(
-                                    textStyle: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w400),
-                                  )),
                               Container(
+                                padding: EdgeInsets.fromLTRB(12, 10, 12, 10),
+                                child: Text("ADD",
+                                    style: GoogleFonts.beVietnamPro(
+                                      textStyle: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400),
+                                    )),
+                              ),
+                              Container(
+                                height: 28,
+                                width: 26,
+                                padding: EdgeInsets.all(3),
                                 decoration: BoxDecoration(
                                     color: Color.fromRGBO(255, 199, 54, 1),
                                     borderRadius: BorderRadius.circular(7),
                                     border: Border.all(width: 0.4)),
                                 child: Image.asset(
                                   "assets/DesignImages/ShopIcon.png",
-                                  height: 28,
-                                  width: 28,
                                 ),
                               )
                             ],

@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
+typedef StringCallback = void Function(String);
+
 class CustomNavigationBar extends StatefulWidget {
-  const CustomNavigationBar({super.key});
+  const CustomNavigationBar(
+      {super.key, required this.onIconTap, required this.selectedItem});
+
+  final StringCallback onIconTap;
+  final String selectedItem;
+
   @override
   State<CustomNavigationBar> createState() => _CustomNavigationBarState();
 }
@@ -25,43 +32,68 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                 )),
             Positioned(
                 left: 44,
-                bottom: 20,
-                child: Image.asset(
-                  "assets/DesignImages/HomeIcon.png",
-                  height: 26,
-                  width: 26,
+                bottom: 22,
+                child: InkWell(
+                  onTap: () {
+                    widget.onIconTap("H");
+                  },
+                  child: Image.asset(
+                    "assets/DesignImages/${widget.selectedItem == "H" ? "SelectedIcons" : "NonSelectedIcons"}/Home.png",
+                    height: 24,
+                    width: 24,
+                  ),
                 )),
             Positioned(
                 left: 116,
                 bottom: 22,
-                child: Image.asset(
-                  "assets/DesignImages/NotificationIcon.png",
-                  height: 24,
-                  width: 26,
+                child: InkWell(
+                  onTap: () {
+                    widget.onIconTap("N");
+                  },
+                  child: Image.asset(
+                    "assets/DesignImages/${widget.selectedItem == "N" ? "SelectedIcons" : "NonSelectedIcons"}/Notification.png",
+                    height: 24,
+                    width: 24,
+                  ),
                 )),
             Positioned(
                 left: 268,
-                bottom: 20,
-                child: Image.asset(
-                  "assets/DesignImages/LikeIcon.png",
-                  height: 28,
-                  width: 27,
+                bottom: 22,
+                child: InkWell(
+                  onTap: () {
+                    widget.onIconTap("L");
+                  },
+                  child: Image.asset(
+                    "assets/DesignImages/${widget.selectedItem == "L" ? "SelectedIcons" : "NonSelectedIcons"}/Like.png",
+                    height: 24,
+                    width: 24,
+                  ),
                 )),
             Positioned(
                 left: 340,
                 bottom: 22,
-                child: Image.asset(
-                  "assets/DesignImages/ProfileIcon.png",
-                  height: 24,
-                  width: 24,
+                child: InkWell(
+                  onTap: () {
+                    widget.onIconTap("P");
+                  },
+                  child: Image.asset(
+                    "assets/DesignImages/${widget.selectedItem == "P" ? "SelectedIcons" : "NonSelectedIcons"}/Profile.png",
+                    height: 24,
+                    width: 24,
+                  ),
                 )),
             Positioned(
                 left: 173,
                 top: 4.5,
-                child: Image.asset(
-                  "assets/DesignImages/CenterIcon.png",
-                  height: 66,
-                  width: 66,
+                child: InkWell(
+                  onTap: () {
+                    widget.onIconTap("S");
+                  },
+                  child: Image.asset(
+                    "assets/DesignImages/CenterIcon.png",
+                    height: 66,
+                    width: 66,
+                  ),
                 )),
           ],
         ));

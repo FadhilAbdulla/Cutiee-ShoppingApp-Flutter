@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'Pages/HomePage.dart';
 import 'Pages/Splashscreen.dart';
-import 'Pages/NewArrivals.dart';
+import 'Pages/BottomNavigation.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,8 +17,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: <String, WidgetBuilder>{
         '/': (context) => Splashscreen(),
-        '/home': (context) => HomePage(),
-        '/newarrivals': (context) => NewArrivals()
+        '/home': (context) => BottomNavigation(),
       },
     );
   }

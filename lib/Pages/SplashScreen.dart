@@ -22,21 +22,6 @@ class _SplashscreenState extends State<Splashscreen> {
               decoration: BoxDecoration(color: Colors.white),
             ),
             Positioned(
-                left: 135,
-                child: Container(
-                  height: 390,
-                  width: 390,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                          blurRadius: 210,
-                          spreadRadius: 1,
-                          color: Color.fromRGBO(255, 94, 94, 0.29))
-                    ],
-                  ),
-                )),
-            Positioned(
                 left: -99,
                 top: -146,
                 child: Container(
@@ -47,8 +32,23 @@ class _SplashscreenState extends State<Splashscreen> {
                     boxShadow: [
                       BoxShadow(
                           blurRadius: 210,
-                          spreadRadius: 5,
-                          color: Color.fromRGBO(255, 198, 54, 0.57))
+                          spreadRadius: 100,
+                          color: Color.fromRGBO(255, 199, 54, 0.20))
+                    ],
+                  ),
+                )),
+            Positioned(
+                left: 135,
+                child: Container(
+                  height: 390,
+                  width: 390,
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                          blurRadius: 210,
+                          spreadRadius: 100,
+                          color: Color.fromRGBO(255, 94, 94, 0.12))
                     ],
                   ),
                 )),
@@ -125,11 +125,11 @@ class _SplashscreenState extends State<Splashscreen> {
                         textStyle: TextStyle(
                             color: Colors.black,
                             fontSize: 20,
-                            fontWeight: FontWeight.w700)),
+                            fontWeight: FontWeight.w900)),
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 Container(
                   width: 256,
@@ -140,8 +140,11 @@ class _SplashscreenState extends State<Splashscreen> {
                         textStyle: TextStyle(
                             color: Colors.black,
                             fontSize: 16,
-                            fontWeight: FontWeight.w400)),
+                            fontWeight: FontWeight.w600)),
                   ),
+                ),
+                SizedBox(
+                  height: 25,
                 ),
                 Container(
                     width: MediaQuery.of(context).size.width,

@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../Components/CustomNavigationBar.dart';
-import '../Components/DefaultHeader.dart';
 import '../Components/NewArivalComponent.dart';
 import '../Components/HeaderComponent.dart';
-import '../Components/HomePageBlurContainer.dart';
-import 'dart:ui';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  const HomePage({super.key, required this.NavigateToProductPage});
+
+  final VoidCallback NavigateToProductPage;
   @override
   State<HomePage> createState() => _HomePageState();
 }
@@ -52,130 +49,115 @@ class _HomePageState extends State<HomePage> {
     Navigator.of(context).pushReplacementNamed('/newarrivals');
   }
 
+  void NavigateToProductPage() {
+    widget.NavigateToProductPage();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: DefaultHeader(),
-      ),
-      body: Stack(
-        children: [
-          Positioned(left: -152, top: -243, child: HomePageBlurContainer()),
-          Positioned.fill(
-            child: SingleChildScrollView(
-              padding: EdgeInsets.fromLTRB(
-                  0, 120, 0, 80), // Ensure padding for bottom navigation bar
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: HeaderImages.map((data) {
-                            return HeaderComponent(
-                                ImageUrl: data["Image"],
-                                ItemName: data["Name"]);
-                          }).toList(),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    Text(
-                      "Categories",
-                      style: GoogleFonts.manjari(
-                        textStyle: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.black),
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 5),
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: CategoryImages.map((data) {
-                            return Padding(
-                              padding: const EdgeInsets.only(right: 11),
-                              child: Column(
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(28),
-                                    child: Image.asset(
-                                      data[
-                                          "Image"], // Replace with Image.asset if using local assets
-                                      width:
-                                          65, // Adjust width to match Container's width
-                                      height:
-                                          71, // Adjust height to match Container's height
-                                      fit: BoxFit
-                                          .cover, // Use BoxFit.cover to fill the container
-                                    ),
-                                  ),
-                                  Text(
-                                    data["Name"],
-                                    style: GoogleFonts.beVietnamPro(
-                                      textStyle: TextStyle(
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w400),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            );
-                          }).toList(),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    InkWell(
-                      onTap: NavigateToNavigationPage,
-                      child: Text(
-                        "New Arrivals",
-                        style: GoogleFonts.manjari(
-                          textStyle: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.black),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 10),
-                      child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: ArrivalsImages.map((data) {
-                            return NewArivalComponent(
-                                ImageUrl: data["Image"],
-                                ItemName: data["Name"],
-                                Price: data["Price"],
-                                haveAddToCart: false);
-                          }).toList(),
-                        ),
-                      ),
-                    ),
-                  ],
+    return SingleChildScrollView(
+      padding: EdgeInsets.fromLTRB(0, 120, 0, 80),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: HeaderImages.map((data) {
+                    return InkWell(
+                      onTap: NavigateToProductPage,
+                      child: HeaderComponent(
+                          ImageUrl: data["Image"], ItemName: data["Name"]),
+                    );
+                  }).toList(),
                 ),
               ),
             ),
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: ClipRRect(
-              child: CustomNavigationBar(),
+            SizedBox(height: 20),
+            Text(
+              "Categories",
+              style: GoogleFonts.manjari(
+                textStyle: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.black),
+              ),
             ),
-          ),
-        ],
+            Container(
+              padding: EdgeInsets.only(top: 5),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: CategoryImages.map((data) {
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 11),
+                      child: Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(28),
+                            child: Image.asset(
+                              data["Image"],
+                              width: 65,
+                              height: 71,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                          Text(
+                            data["Name"],
+                            style: GoogleFonts.beVietnamPro(
+                              textStyle: TextStyle(
+                                  fontSize: 12, fontWeight: FontWeight.w400),
+                            ),
+                          )
+                        ],
+                      ),
+                    );
+                  }).toList(),
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            Text(
+              "New Arrivals",
+              style: GoogleFonts.manjari(
+                textStyle: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w900,
+                    color: Colors.black),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 10),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: ArrivalsImages.map((data) {
+                    return Container(
+                      margin: EdgeInsets.only(bottom: 15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          NewArivalComponent(
+                              ImageUrl: data["Image"],
+                              ItemName: data["Name"],
+                              Price: data["Price"],
+                              haveAddToCart: true),
+                          NewArivalComponent(
+                              ImageUrl: data["Image"],
+                              ItemName: data["Name"],
+                              Price: data["Price"],
+                              haveAddToCart: true),
+                        ],
+                      ),
+                    );
+                  }).toList(),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
