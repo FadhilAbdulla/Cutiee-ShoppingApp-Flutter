@@ -26,26 +26,15 @@ class _SplashscreenState extends State<Splashscreen> {
                 child: Container(
                   height: 390,
                   width: 390,
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.topRight,
-                          end: Alignment.centerLeft,
-                          colors: [
-                            // Color.fromRGBO(255, 198, 54, 0.57),
-                            Color.fromRGBO(255, 94, 94, 0.29),
-                            Colors.white,
-                          ]),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color.fromRGBO(255, 94, 94, 0.29)
-                              .withOpacity(0.10),
-                          spreadRadius: 300,
-                          blurRadius: 500,
-                          offset: Offset(0, 12), // changes position of shadow
-                        ),
-                      ],
-                      shape: BoxShape.circle,
-                      color: Color.fromRGBO(255, 94, 94, 0.29)),
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                          blurRadius: 210,
+                          spreadRadius: 1,
+                          color: Color.fromRGBO(255, 94, 94, 0.29))
+                    ],
+                  ),
                 )),
             Positioned(
                 left: -99,
@@ -53,25 +42,15 @@ class _SplashscreenState extends State<Splashscreen> {
                 child: Container(
                   height: 390,
                   width: 390,
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [
-                            Color.fromRGBO(255, 198, 54, 20),
-                            Colors.white
-                          ]),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color.fromRGBO(255, 198, 54, 0.57)
-                              .withOpacity(0.30),
-                          spreadRadius: 100,
-                          blurRadius: 200,
-                          offset: Offset(0, 12), // changes position of shadow
-                        ),
-                      ],
-                      shape: BoxShape.circle,
-                      color: Color.fromRGBO(255, 198, 54, 0.57)),
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                          blurRadius: 210,
+                          spreadRadius: 5,
+                          color: Color.fromRGBO(255, 198, 54, 0.57))
+                    ],
+                  ),
                 )),
             Positioned(
                 child: Container(
@@ -169,7 +148,10 @@ class _SplashscreenState extends State<Splashscreen> {
                     // margin: EdgeInsets.only(bo),
                     child: Stack(
                       children: [
-                        Image.asset('assets/DesignImages/HomeAvatarImage.png'),
+                        Image.asset(
+                          'assets/DesignImages/HomeAvatarImage.png',
+                          width: MediaQuery.of(context).size.width,
+                        ),
                         Positioned(
                           bottom: 20,
                           right: 20,

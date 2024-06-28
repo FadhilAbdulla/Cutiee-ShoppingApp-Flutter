@@ -5,6 +5,7 @@ import '../Components/CustomNavigationBar.dart';
 import '../Components/DefaultHeader.dart';
 import '../Components/NewArivalComponent.dart';
 import '../Components/HeaderComponent.dart';
+import '../Components/HomePageBlurContainer.dart';
 import 'dart:ui';
 
 class HomePage extends StatefulWidget {
@@ -46,6 +47,11 @@ class _HomePageState extends State<HomePage> {
       "Price": "Rs.800"
     },
   ];
+
+  void NavigateToNavigationPage() {
+    Navigator.of(context).pushReplacementNamed('/newarrivals');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,35 +64,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Stack(
         children: [
-          Positioned(
-              left: -152,
-              top: -243,
-              child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-                  child: Container(
-                    height: 614,
-                    width: 614,
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              // Color.fromRGBO(255, 198, 54, 0.57),
-                              Color.fromRGBO(254, 105, 92, 1),
-                              Colors.white,
-                            ]),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color.fromRGBO(255, 94, 94, 0.29)
-                                .withOpacity(0.10),
-                            spreadRadius: 100,
-                            blurRadius: 20,
-                            offset: Offset(0, 12), // changes position of shadow
-                          ),
-                        ],
-                        shape: BoxShape.circle,
-                        color: Color.fromRGBO(255, 94, 94, 0.29)),
-                  ))),
+          Positioned(left: -152, top: -243, child: HomePageBlurContainer()),
           Positioned.fill(
             child: SingleChildScrollView(
               padding: EdgeInsets.fromLTRB(
@@ -157,13 +135,16 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     SizedBox(height: 20),
-                    Text(
-                      "New Arrivals",
-                      style: GoogleFonts.manjari(
-                        textStyle: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.black),
+                    InkWell(
+                      onTap: NavigateToNavigationPage,
+                      child: Text(
+                        "New Arrivals",
+                        style: GoogleFonts.manjari(
+                          textStyle: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.black),
+                        ),
                       ),
                     ),
                     Container(

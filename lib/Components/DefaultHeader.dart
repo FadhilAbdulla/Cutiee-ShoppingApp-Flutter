@@ -8,6 +8,10 @@ class DefaultHeader extends StatefulWidget {
 }
 
 class _DefaultHeaderState extends State<DefaultHeader> {
+  void NavigateToHome() {
+    Navigator.of(context).pushReplacementNamed('/home');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,56 +19,59 @@ class _DefaultHeaderState extends State<DefaultHeader> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Stack(
-            children: <Widget>[
-              Container(
-                height: 57,
-                width: 120,
-              ),
-              Positioned(
-                top: 3,
-                left: 2.8,
-                child: Text("Cutiee",
-                    style: GoogleFonts.lilitaOne(
-                      textStyle: TextStyle(
-                          color: Colors.black,
-                          fontSize: 41,
-                          fontWeight: FontWeight.w400,
-                          fontFeatures: [],
-                          letterSpacing: -3),
-                    )),
-              ),
-              // // Stroked text as border.
+          InkWell(
+            onTap: NavigateToHome,
+            child: Stack(
+              children: <Widget>[
+                Container(
+                  height: 57,
+                  width: 120,
+                ),
+                Positioned(
+                  top: 3,
+                  left: 2.8,
+                  child: Text("Cutiee",
+                      style: GoogleFonts.lilitaOne(
+                        textStyle: TextStyle(
+                            color: Colors.black,
+                            fontSize: 41,
+                            fontWeight: FontWeight.w400,
+                            fontFeatures: [],
+                            letterSpacing: -3),
+                      )),
+                ),
+                // // Stroked text as border.
 
-              Positioned(
+                Positioned(
+                    left: 1,
+                    child: Text("Cutiee",
+                        style: GoogleFonts.lilitaOne(
+                          textStyle: TextStyle(
+                            fontSize: 40,
+                            fontWeight: FontWeight.w400,
+                            fontFeatures: [],
+                            letterSpacing: -3,
+                            foreground: Paint()
+                              ..style = PaintingStyle.stroke
+                              ..strokeWidth = 2
+                              ..color = Colors.black,
+                          ),
+                        ))),
+                Positioned(
                   left: 1,
                   child: Text("Cutiee",
                       style: GoogleFonts.lilitaOne(
                         textStyle: TextStyle(
-                          fontSize: 40,
-                          fontWeight: FontWeight.w400,
-                          fontFeatures: [],
-                          letterSpacing: -3,
-                          foreground: Paint()
-                            ..style = PaintingStyle.stroke
-                            ..strokeWidth = 2
-                            ..color = Colors.black,
-                        ),
-                      ))),
-              Positioned(
-                left: 1,
-                child: Text("Cutiee",
-                    style: GoogleFonts.lilitaOne(
-                      textStyle: TextStyle(
-                          color: Colors.white,
-                          fontSize: 40,
-                          fontWeight: FontWeight.w400,
-                          fontFeatures: [],
-                          letterSpacing: -3),
-                    )),
-              )
-              // Solid text as fill.
-            ],
+                            color: Colors.white,
+                            fontSize: 40,
+                            fontWeight: FontWeight.w400,
+                            fontFeatures: [],
+                            letterSpacing: -3),
+                      )),
+                )
+                // Solid text as fill.
+              ],
+            ),
           ),
           Container(
             width: 88,

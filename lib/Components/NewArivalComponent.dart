@@ -51,37 +51,40 @@ class _NewArivalComponentState extends State<NewArivalComponent> {
                       height: 28,
                       width: 28,
                     )),
-                Positioned(
-                    top: 175,
-                    left: 38,
-                    child: Container(
-                      height: 35,
-                      width: 81,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(width: 0.4)),
-                      child: Row(
-                        children: [
-                          Text("ADD",
-                              style: GoogleFonts.beVietnamPro(
-                                textStyle: TextStyle(
-                                    fontSize: 12, fontWeight: FontWeight.w400),
-                              )),
-                          Container(
-                            decoration: BoxDecoration(
-                                color: Color.fromRGBO(255, 199, 54, 1),
-                                borderRadius: BorderRadius.circular(7),
-                                border: Border.all(width: 0.4)),
-                            child: Image.asset(
-                              "assets/DesignImages/ShopIcon.png",
-                              height: 28,
-                              width: 28,
-                            ),
-                          )
-                        ],
-                      ),
-                    )),
+                widget.haveAddToCart
+                    ? Positioned(
+                        top: 175,
+                        left: 38,
+                        child: Container(
+                          height: 35,
+                          width: 81,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(width: 0.4)),
+                          child: Row(
+                            children: [
+                              Text("ADD",
+                                  style: GoogleFonts.beVietnamPro(
+                                    textStyle: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w400),
+                                  )),
+                              Container(
+                                decoration: BoxDecoration(
+                                    color: Color.fromRGBO(255, 199, 54, 1),
+                                    borderRadius: BorderRadius.circular(7),
+                                    border: Border.all(width: 0.4)),
+                                child: Image.asset(
+                                  "assets/DesignImages/ShopIcon.png",
+                                  height: 28,
+                                  width: 28,
+                                ),
+                              )
+                            ],
+                          ),
+                        ))
+                    : Container(),
               ],
             ),
           ),
