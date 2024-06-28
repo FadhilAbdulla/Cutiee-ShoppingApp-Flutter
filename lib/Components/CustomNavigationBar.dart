@@ -31,7 +31,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                   width: MediaQuery.of(context).size.width,
                 )),
             Positioned(
-                left: 44,
+                left: MediaQuery.of(context).size.width * 0.11,
                 bottom: 22,
                 child: InkWell(
                   onTap: () {
@@ -44,7 +44,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                   ),
                 )),
             Positioned(
-                left: 116,
+                left: MediaQuery.of(context).size.width * 0.285,
                 bottom: 22,
                 child: InkWell(
                   onTap: () {
@@ -57,7 +57,20 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                   ),
                 )),
             Positioned(
-                left: 268,
+                left: MediaQuery.of(context).size.width * 0.42,
+                top: 4.5,
+                child: InkWell(
+                  onTap: () {
+                    widget.onIconTap("S");
+                  },
+                  child: Image.asset(
+                    "assets/DesignImages/CenterIcon.png",
+                    height: 66,
+                    width: 66,
+                  ),
+                )),
+            Positioned(
+                left: MediaQuery.of(context).size.width * 0.66,
                 bottom: 22,
                 child: InkWell(
                   onTap: () {
@@ -70,7 +83,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                   ),
                 )),
             Positioned(
-                left: 340,
+                left: MediaQuery.of(context).size.width * 0.82,
                 bottom: 22,
                 child: InkWell(
                   onTap: () {
@@ -80,19 +93,6 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                     "assets/DesignImages/${widget.selectedItem == "P" ? "SelectedIcons" : "NonSelectedIcons"}/Profile.png",
                     height: 24,
                     width: 24,
-                  ),
-                )),
-            Positioned(
-                left: 173,
-                top: 4.5,
-                child: InkWell(
-                  onTap: () {
-                    widget.onIconTap("S");
-                  },
-                  child: Image.asset(
-                    "assets/DesignImages/CenterIcon.png",
-                    height: 66,
-                    width: 66,
                   ),
                 )),
           ],
