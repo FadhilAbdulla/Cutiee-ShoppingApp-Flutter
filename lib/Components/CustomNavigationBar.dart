@@ -17,12 +17,12 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 107,
+        height: MediaQuery.of(context).size.height * 0.12,
         alignment: Alignment.bottomCenter,
         child: Stack(
           children: [
             Container(
-              height: 100,
+              height: MediaQuery.of(context).size.height * 0.105,
             ),
             Positioned(
                 bottom: 0,
@@ -32,7 +32,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                 )),
             Positioned(
                 left: MediaQuery.of(context).size.width * 0.11,
-                bottom: 22,
+                bottom: MediaQuery.of(context).size.height * 0.025,
                 child: InkWell(
                   onTap: () {
                     widget.onIconTap("H");
@@ -45,7 +45,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                 )),
             Positioned(
                 left: MediaQuery.of(context).size.width * 0.285,
-                bottom: 22,
+                bottom: MediaQuery.of(context).size.height * 0.025,
                 child: InkWell(
                   onTap: () {
                     widget.onIconTap("N");
@@ -58,20 +58,20 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                 )),
             Positioned(
                 left: MediaQuery.of(context).size.width * 0.42,
-                top: 4.5,
+                top: 0,
                 child: InkWell(
                   onTap: () {
                     widget.onIconTap("S");
                   },
                   child: Image.asset(
                     "assets/DesignImages/CenterIcon.png",
-                    height: 66,
-                    width: 66,
+                    height: MediaQuery.of(context).size.width * 0.16,
+                    width: MediaQuery.of(context).size.width * 0.16,
                   ),
                 )),
             Positioned(
                 left: MediaQuery.of(context).size.width * 0.66,
-                bottom: 22,
+                bottom: MediaQuery.of(context).size.height * 0.025,
                 child: InkWell(
                   onTap: () {
                     widget.onIconTap("L");
@@ -84,7 +84,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                 )),
             Positioned(
                 left: MediaQuery.of(context).size.width * 0.82,
-                bottom: 22,
+                bottom: MediaQuery.of(context).size.height * 0.025,
                 child: InkWell(
                   onTap: () {
                     widget.onIconTap("P");
