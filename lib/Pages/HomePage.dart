@@ -100,8 +100,8 @@ class _HomePageState extends State<HomePage> {
                             borderRadius: BorderRadius.circular(28),
                             child: Image.asset(
                               data["Image"],
-                              width: 65,
-                              height: 71,
+                              width: MediaQuery.of(context).size.width * 0.17,
+                              height: MediaQuery.of(context).size.height * 0.08,
                               fit: BoxFit.cover,
                             ),
                           ),

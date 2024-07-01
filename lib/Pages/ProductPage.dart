@@ -59,7 +59,7 @@ class _ProductPageState extends State<ProductPage> {
       padding: EdgeInsets.fromLTRB(
           0, 120, 0, 80), // Ensure padding for bottom navigation bar
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+        padding: const EdgeInsets.fromLTRB(20, 10, 15, 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -83,8 +83,8 @@ class _ProductPageState extends State<ProductPage> {
                     ),
                   ),
                   Container(
-                    height: 251,
-                    width: 65,
+                    height: MediaQuery.of(context).size.height * 0.3,
+                    width: MediaQuery.of(context).size.width * 0.2,
                     child: SingleChildScrollView(
                       child: Column(
                         children: ArrivalsImages["ImageList"]
@@ -102,10 +102,10 @@ class _ProductPageState extends State<ProductPage> {
                                 borderRadius: BorderRadius.circular(28),
                                 child: Image.asset(
                                   entry.value,
-                                  width:
-                                      71, // Adjust width to match Container's width
+                                  width: MediaQuery.of(context).size.width *
+                                      0.18, // Adjust width to match Container's width
                                   height:
-                                      65, // Adjust height to match Container's height
+                                      MediaQuery.of(context).size.height * 0.08,
                                   fit: BoxFit
                                       .cover, // Use BoxFit.cover to fill the container
                                 ),

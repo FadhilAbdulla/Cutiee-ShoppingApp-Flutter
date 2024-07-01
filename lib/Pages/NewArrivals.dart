@@ -44,49 +44,45 @@ class _NewArrivalsState extends State<NewArrivals> {
           Positioned.fill(
             child: SingleChildScrollView(
               padding: EdgeInsets.fromLTRB(0, 120, 0, 80),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "New Arrivals",
-                      style: GoogleFonts.manjari(
-                        textStyle: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w900,
-                            color: Colors.black),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "New Arrivals",
+                    style: GoogleFonts.manjari(
+                      textStyle: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w900,
+                          color: Colors.black),
+                    ),
+                  ),
+                  Container(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: ArrivalsImages.map((data) {
+                          return Container(
+                            margin: EdgeInsets.only(top: 15),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                NewArivalComponent(
+                                    ImageUrl: data["Image"],
+                                    ItemName: data["Name"],
+                                    Price: data["Price"],
+                                    haveAddToCart: true),
+                                NewArivalComponent(
+                                    ImageUrl: data["Image"],
+                                    ItemName: data["Name"],
+                                    Price: data["Price"],
+                                    haveAddToCart: true),
+                              ],
+                            ),
+                          );
+                        }).toList(),
                       ),
                     ),
-                    Container(
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: ArrivalsImages.map((data) {
-                            return Container(
-                              margin: EdgeInsets.only(top: 15),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  NewArivalComponent(
-                                      ImageUrl: data["Image"],
-                                      ItemName: data["Name"],
-                                      Price: data["Price"],
-                                      haveAddToCart: true),
-                                  NewArivalComponent(
-                                      ImageUrl: data["Image"],
-                                      ItemName: data["Name"],
-                                      Price: data["Price"],
-                                      haveAddToCart: true),
-                                ],
-                              ),
-                            );
-                          }).toList(),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),

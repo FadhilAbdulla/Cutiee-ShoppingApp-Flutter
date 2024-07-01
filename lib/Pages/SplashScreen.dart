@@ -65,12 +65,12 @@ class _SplashscreenState extends State<Splashscreen> {
                   child: Stack(
                     children: <Widget>[
                       Container(
-                        height: 57,
-                        width: 120,
+                        height: MediaQuery.of(context).size.height * 0.07,
+                        width: MediaQuery.of(context).size.height * 0.135,
                       ),
                       Positioned(
-                        top: 3,
-                        left: 2.8,
+                        top: MediaQuery.of(context).size.height * 0.003,
+                        left: MediaQuery.of(context).size.width * 0.006,
                         child: Text("Cutiee",
                             style: GoogleFonts.lilitaOne(
                               textStyle: TextStyle(
@@ -84,7 +84,7 @@ class _SplashscreenState extends State<Splashscreen> {
                       // // Stroked text as border.
 
                       Positioned(
-                          left: 1,
+                          left: MediaQuery.of(context).size.width * 0.0025,
                           child: Text("Cutiee",
                               style: GoogleFonts.lilitaOne(
                                 textStyle: TextStyle(
@@ -99,7 +99,7 @@ class _SplashscreenState extends State<Splashscreen> {
                                 ),
                               ))),
                       Positioned(
-                        left: 1,
+                        left: MediaQuery.of(context).size.width * 0.0025,
                         child: Text("Cutiee",
                             style: GoogleFonts.lilitaOne(
                               textStyle: TextStyle(
@@ -132,7 +132,7 @@ class _SplashscreenState extends State<Splashscreen> {
                   height: 10,
                 ),
                 Container(
-                  width: 256,
+                  width: MediaQuery.of(context).size.width * 0.7,
                   child: Text(
                     "Discover a collection of all the charming products in one place, and indulge in the joy of shopping!",
                     textAlign: TextAlign.center,

@@ -28,15 +28,15 @@ class _NewArivalComponentState extends State<NewArivalComponent> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 157,
-      height: 268,
-      margin: const EdgeInsets.only(right: 20),
+      width: MediaQuery.of(context).size.width * 0.42,
+      height: MediaQuery.of(context).size.height * 0.38,
+      margin: EdgeInsets.fromLTRB(0, 0, 20, 0),
       child: Column(
         children: [
           Container(
             margin: EdgeInsets.only(bottom: 10),
-            height: 218,
-            width: 157,
+            height: MediaQuery.of(context).size.height * 0.30,
+            width: MediaQuery.of(context).size.width * 0.5,
             child: Stack(
               children: [
                 Container(),
@@ -45,15 +45,15 @@ class _NewArivalComponentState extends State<NewArivalComponent> {
                   child: Image.asset(
                     widget
                         .ImageUrl, // Replace with Image.asset if using local assets
-                    width: 157, // Adjust width to match Container's width
-                    height: 245,
+                    // width: 157, // Adjust width to match Container's width
+                    // height: MediaQuery.of(context).size.height * 0.525,
                     // Adjust height to match Container's height
                     fit: BoxFit.cover, // Use BoxFit.cover to fill the container
                   ),
                 ),
                 Positioned(
-                    top: 7,
-                    left: 126,
+                    top: MediaQuery.of(context).size.height * 0.006,
+                    left: MediaQuery.of(context).size.width * 0.34,
                     child: InkWell(
                       onTap: LikeItem,
                       child: Container(
@@ -69,8 +69,8 @@ class _NewArivalComponentState extends State<NewArivalComponent> {
                     )),
                 widget.haveAddToCart
                     ? Positioned(
-                        top: 175,
-                        left: 38,
+                        bottom: MediaQuery.of(context).size.height * 0.01,
+                        left: MediaQuery.of(context).size.width * 0.11,
                         child: Container(
                           height: 35,
                           width: 81,

@@ -24,12 +24,12 @@ class _DefaultHeaderState extends State<DefaultHeader> {
             child: Stack(
               children: <Widget>[
                 Container(
-                  height: 57,
-                  width: 120,
+                  height: MediaQuery.of(context).size.height * 0.065,
+                  width: MediaQuery.of(context).size.width * 0.3,
                 ),
                 Positioned(
-                  top: 3,
-                  left: 2.8,
+                  top: MediaQuery.of(context).size.height * 0.0022,
+                  left: MediaQuery.of(context).size.width * 0.006,
                   child: Text("Cutiee",
                       style: GoogleFonts.lilitaOne(
                         textStyle: TextStyle(
@@ -43,7 +43,7 @@ class _DefaultHeaderState extends State<DefaultHeader> {
                 // // Stroked text as border.
 
                 Positioned(
-                    left: 1,
+                    left: MediaQuery.of(context).size.width * 0.0025,
                     child: Text("Cutiee",
                         style: GoogleFonts.lilitaOne(
                           textStyle: TextStyle(
@@ -58,7 +58,7 @@ class _DefaultHeaderState extends State<DefaultHeader> {
                           ),
                         ))),
                 Positioned(
-                  left: 1,
+                  left: MediaQuery.of(context).size.width * 0.0025,
                   child: Text("Cutiee",
                       style: GoogleFonts.lilitaOne(
                         textStyle: TextStyle(
@@ -74,7 +74,7 @@ class _DefaultHeaderState extends State<DefaultHeader> {
             ),
           ),
           Container(
-            width: 88,
+            width: MediaQuery.of(context).size.width * 0.22,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
